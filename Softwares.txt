@@ -1,0 +1,5 @@
+1 - Install Node.js
+2 - Install Postman	---> Used for testing api's
+	Download URL: https://www.postman.com/downloads/
+3 - Install MongoDb Compass 
+        Download URL : https://www.mongodb.com/try/download/shell
