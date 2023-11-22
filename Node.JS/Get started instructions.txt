@@ -1,4 +1,4 @@
-1 - Run npm init ---> to initialize the package.json file
+1 - Run npm init --> to initialize the package.json file
 
 2 - npm install -g nodemon ---> nodemon is a utility that monitors for changes in files in a Node.js
                                 application and automatically restarts the server when changes are detected.
