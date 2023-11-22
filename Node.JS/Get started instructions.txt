@@ -3,7 +3,7 @@
 2 - npm install -g nodemon ---> nodemon is a utility that monitors for changes in files in a Node.js
                                 application and automatically restarts the server when changes are detected.
 
-3 - npm install cors dotenv express mongoose --save-dev nodemon ---> Basic dependencies to create a server
+3 - npm install cors dotenv mongoose express--save-dev nodemon ---> Basic dependencies to create a server
 
 4 - Importing libraries in index.js file
 
