@@ -1,6 +1,8 @@
 
 ## Chapter 4 - REST API using Express JS
 
+<img src="/RESTAPI.png" >
+
 ### [[ Reading Material ]]
 
 #### HTTP Methods
