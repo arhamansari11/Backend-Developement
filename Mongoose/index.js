@@ -15,7 +15,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  
+
   const db = mongoose.connection;
 
 
@@ -32,3 +32,6 @@ db.once("open", () => {
         console.log(`server is running on ${port} port`);
     });
 });
+
+
+

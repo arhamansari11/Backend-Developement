@@ -1,89 +1,94 @@
-const express = require("express");
+const express = require('express');
+const moongose = require('mongoose');
+const usermodel = require('../models/usermodel');
 const router = express.Router();
-const Users = require('../models/usermodel');
-const mongoose = require("mongoose");
 
+// POST Data
 
-
-// We define all API's Here
-
-// Read users data
-router.get("/users", async (req, res) => {
-    const usersData = await Users.find();
-    res.json(usersData);
-});
-
-// Read a specific user data
-router.get("/users/:id", async (req, res) => {
+router.post('/addUser', async (req, res) => {
     try {
-        const userid = req.params.id;
-        const finduser = await Users.findById(userid);
-        if (!finduser) {
-            return res.status(404).json({ message: "user not found" });
+        const newuser = new usermodel({
+            _id: new moongose.Types.ObjectId(),
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            age: req.body.age,
+            email: req.body.email
+        });
+        const result = await newuser.save();
+        console.log(result);
+        res.json(result)
+    } catch (error) {
+        res.status(400).json({ message: "Your Data is not added" })
+        console.log(error);
+    }
+})
+
+
+// GET DATA
+
+router.get('/users', async (req, res) => {
+    const useralldata = await usermodel.find();
+    res.json(useralldata);
+})
+
+// GET DATA By Id
+
+router.get('/users/:id', async (req, res) => {
+    try {
+        const userbyId = req.params.id;
+        const userdataId = await usermodel.findById(userbyId);
+        if (!userdataId) {
+            return res.status(404).json("User Not Found")
         } else {
-            res.status(200).json(finduser);
+            res.status(200).json(userdataId);
         }
     } catch (error) {
-        return res.status(500).json({ error: error.message })
+        return res.status(500).json(error)
     }
-});
+})
 
-// Create user
-
-router.post("/addUser", (req, res) => {
-    const newUser = new Users({
-        _id: new mongoose.Types.ObjectId(),
-        name: req.body.name,
-        age: req.body.age,
-        email: req.body.email
-    })
-    const result = newUser.save();
-    res.json(newUser)
-});
-
-
-
-// delete user
-router.delete("/deleteUser/:id", async (req, res) => {
+// DELETE DATA By Id
+router.delete('/delUser/:id', async (req, res) => {
     try {
-        const userId = req.params.id;
-        const deletedUser = await Users.findByIdAndDelete(userId);
-        console.log("deletedUser : ", deletedUser);
-
-        if (!deletedUser) {
-            return res.status(404).json({ message: "User not found!" });
+        const userbyId = req.params.id;
+        const userdataId = await usermodel.findByIdAndDelete(userbyId);
+        if (!userdataId) {
+            return res.status(404).json("User Not Found")
+        } else {
+            res.status(200).json(userdataId);
         }
-
-        return res.json({ message: "user deleted successfuly!" });
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json(error)
     }
-});
 
-// UpdateData
+})
 
-router.put("/updateUser/:id", async (req, res) => {
+
+// UPDATE USER By Id
+
+router.put('/updUser/:id', async (req, res) => {
     try {
-        const userId = req.params.id;
-        const dataToBeUpdate = new Users({
-            name: req.body.name,
+        const userbyId = req.params.id;
+        const dataupdated = new usermodel({
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
             age: req.body.age,
             email: req.body.email,
-        });
-
-        const updatedData = await Users.findByIdAndUpdate(userId, dataToBeUpdate, {
-            new: true,
-        });
-        console.log("updatedData : ", updatedData);
-
-        if (!updatedData) {
-            return res.status(404).json({ message: "User not found!" });
+        })
+        const updateddata = await usermodel.findByIdAndUpdate(userbyId, dataupdated, {
+            new: true
+        })
+        console.log(updateddata);
+        if (!updateddata) {
+            return res.status(404).json("User Not Found")
+        } else {
+            res.status(200).json(updateddata);
         }
-
-        return res.json({ message: "user updated successfuly!" });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        return res.status(500).json(error)
     }
-});
+    console.log(error);
+})
+
 
 module.exports = router;
