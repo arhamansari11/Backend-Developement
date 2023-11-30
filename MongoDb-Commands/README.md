@@ -1,4 +1,4 @@
-# mongo_db_commands
+# Mongo_db_commands
 
 All MongoDb commands you will ever need (MongoDb Cheatsheet)
 In this post, we will see a comprehensive list of all the MongoDB commands you will ever need as a MongoDB beginner. This list covers almost all the most used commands in MongoDB.
