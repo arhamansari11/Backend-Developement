@@ -9,7 +9,7 @@
 
 The HTTP method is the type of request you send to the server. You can choose from these five types below:
 
--   `GET`  : This request is used to get a resource from a server. If you perform a  `GET`  request, the server looks for the data you requested and sends it back to you. In other words, a  `GET`  request performs a  `READ`  operation. This is the default request method.
+-   `GET`  : This request is used to get a resource from a server. If you perform a  `GET`  request, the server looks for the data you requested and sends it back to you. In other words a  `GET`  request performs a  `READ`  operation. This is the default request method.
     
 -   `POST`  This request is used to create a new resource on a server. If you perform a  `POST`  request, the server creates a new entry in the database and tells you whether the creation is successful. In other words, a  `POST`  request performs an  `CREATE`  operation.
     
