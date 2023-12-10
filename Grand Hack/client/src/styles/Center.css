@@ -1,0 +1,87 @@
+.bg-color{
+    background-color: #106CA0;
+}
+.clr{
+    color: white;
+    border-color: white;
+}
+.clr:hover{
+    background-color: white;
+    color: black;
+}
+.heading{
+    font-size: 30;
+    font-weight: bolder;
+}
+.img-set>img{
+    height: 500px;
+    width: 340px;
+}
+.fs-h1{
+    font-weight: bolder;
+    color: white;
+}
+.sc-h1{
+    font-weight: bolder;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.class{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+@media only screen and (min-width:768px) and (max-width:992px){
+    .img-set>img{
+        height: 450px;
+        width: 300px;
+    }
+    .fs-h1{
+        font-size: 30px;
+        color: white;
+    }
+    .sc-h1{
+        font-size: 30px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width:550px) and (max-width:767px){
+    .img-set>img{
+        height: 420px;
+        width: 280px;
+    }
+    .fs-h1{
+        font-size: 17px;
+        color: white;
+    }
+    .sc-h1{
+        font-size: 17px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media only screen and (min-width:340px) and (max-width:549px){
+    .img-set>img{
+        height: 300px;
+        width: 220px;
+    }
+    .fs-h1{
+        font-size: 15px;
+        color: white;
+    }
+    .sc-h1{
+        font-size: 15px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
