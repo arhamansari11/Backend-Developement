@@ -1,4 +1,3 @@
-
 # Welcome to the Backend Development repository!
 
 This repository has been created to provide you with practical examples of the concepts covered in each class. My goal is to help you better understand the theoretical concepts by providing you with real-world scenarios and code samples.
